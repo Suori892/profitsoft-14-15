@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Link from 'components/Link';
 import Typography from 'components/Typography';
 import useAccessValidate from 'hooks/useAccessValidate';
+import {NavLink} from "react-router-dom";
 
 const getClasses = makeStyles(() => ({
   container: {
@@ -26,6 +27,10 @@ const Initial = ({
 
   return (
     <div className={classes.container}>
+      <br/>
+      <div>
+        <NavLink to="/items">Items</NavLink>
+      </div>
       {canSeeList && availableItems.map((item, index) => (
         <Link
           href={index % 2 === 0
