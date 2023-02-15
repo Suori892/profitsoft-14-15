@@ -9,6 +9,8 @@ import {
 import IntlProvider from 'components/IntlProvider';
 import Header from 'components/Header';
 import PageInitial from 'pageProviders/Initial';
+import PageItem from 'pageProviders/Items';
+import PageEditItems from 'pageProviders/EditItems';
 import PageLogin from 'pageProviders/Login';
 import * as PAGES from 'constants/pages';
 import {
@@ -41,7 +43,18 @@ const App = () => {
               <Route path={`/${PAGES.INITIAL}`}>
                 <PageInitial />
               </Route>
+              <Route exact path={`/${PAGES.ITEMS}`}>
+                <PageItem/>
+              </Route>
+              <Route exact path={`/${PAGES.EDIT_ITEM}`}>
+                <PageEditItems/>
+              </Route>
+              <Route exact path={`/${PAGES.EDIT_ITEM}/:id`}>
+                <PageEditItems/>
+              </Route>
+
               <Redirect from="*" to={`/${PAGES.INITIAL}`} />
+
             </Switch>
         )}
       </IntlProvider>
